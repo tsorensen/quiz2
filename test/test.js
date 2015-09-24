@@ -9,7 +9,7 @@ describe('longest-string', function () {
     var arr = ['blah', 'foo', 'bar', 'hello'];
     expect(longestString(arr)).to.be.equal('hello');
     arr = ['rolled', 'never', 'gonna', 'give', 'you', 'up'];
-    expect(longestString(arr)).to.be.equal('rickrolled');
+    expect(longestString(arr)).to.be.equal('rolled');
   });
 
   it('should get the longest string from array of mixed values', function () {
