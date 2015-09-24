@@ -2,54 +2,65 @@
 
 var expect = require('chai').expect;
 
+function testFunc(method, input, output) {
+  it(JSON.stringify(input, null), function () {
+    expect(method(input)).to.be.equal(output);
+  });
+}
+
 describe('longest-string', function () {
-  var longestString = require('../problems/longest-string');
+  var test = testFunc.bind(null, require('../problems/longest-string'));
 
-  it('should get the longest string from array of strings', function () {
-    var arr = ['blah', 'foo', 'bar', 'hello'];
-    expect(longestString(arr)).to.be.equal('hello');
-    arr = ['rolled', 'never', 'gonna', 'give', 'you', 'up'];
-    expect(longestString(arr)).to.be.equal('rolled');
-  });
+  test([
+    'blah',
+    'foo',
+    'bar',
+    'hello'
+  ], 'hello');
 
-  it('should get the longest string from array of mixed values', function () {
-    var arr = [
-      {foo: 'bar'},
-      'what',
-      42234845,
-      ['I\'m', 'afraid', 'I can\'t', 'do', 'that', 'dave'],
-      'foo'
-    ];
-    expect(longestString(arr)).to.be.equal('what');
-    arr = [
-      'angular',
-      {length: 10},
-      'foo'
-    ];
-    expect(longestString(arr)).to.be.equal('angular');
-  });
+  test([
+    'never',
+    'gonna',
+    'give',
+    'rolled',
+    'you',
+    'up'
+  ], 'rolled');
+
+  test([
+    {foo: 'bar'},
+    'what',
+    42234845,
+    ['I\'m', 'afraid', 'I can\'t', 'do', 'that', 'dave'],
+    'foo'
+  ], 'what');
+
+  test([
+    'angular',
+    {length: 10},
+    'foo'
+  ], 'angular');
 
 });
 
 
 
 describe('array-sum', function () {
-  var arraySum = require('../problems/array-sum');
+  var test = testFunc.bind(null, require('../problems/array-sum'));
 
-  it('should get the sum of an array', function () {
-    expect(arraySum([])).to.be.equal(0);
-    expect(arraySum([1, 2, 4, 3])).to.be.equal(10);
-    expect(arraySum([20, 63, 3])).to.be.equal(86);
-  });
+  test([], 0);
 
-  it('should get the sum of an array with sub arrays', function () {
-    expect(arraySum([
-      5,
-      [10, 15],
-      20,
-      [25, [30], 35]
-    ])).to.be.equal(140);
-  });
+  test([1, 2, 4, 3], 10);
+
+  test([20, 63, 3], 86);
+
+  test([
+    5,
+    [10, 15],
+    20,
+    [25, [30], 35]
+  ], 140);
+
 });
 
 
