@@ -25,8 +25,8 @@ have in a web development job.
   of the sub-arrays.
 
   ```js
-  subArray([1, 2, 3, 4]) === 10;
-  subArray([
+  arraySum([1, 2, 3, 4]) === 10;
+  arraySum([
     10,
     [1, 2, 3, 4],
     [1, [2, 3], 4]
@@ -38,7 +38,7 @@ have in a web development job.
   with a space between them.
 
   ```js
-  let helloMe = ('Keith', 'Smith', function (name, message) {
+  let helloMe = bindName('Keith', 'Smith', function (name, message) {
     return message + ', ' + name;
   });
   helloMe('Hello') === 'Hello, Keith Smith';
