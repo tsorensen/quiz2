@@ -5,7 +5,7 @@ function arraySum(arr) {
 	if(arr.length > 0) {
 		sum = arr.reduce(function(a, b) {
 			if(b instanceof Array) {
-				return a.concat(arraySum(b))
+				return a.concat(arraySum(b));
 			} else {
 				return a.concat(b);
 			}
@@ -15,7 +15,7 @@ function arraySum(arr) {
 	} else {
 		sum = 0;
 	}
-	
+
 	return sum;
 }
 
